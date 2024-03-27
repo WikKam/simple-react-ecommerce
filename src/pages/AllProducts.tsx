@@ -80,6 +80,7 @@ const AllProducts: FC = () => {
           <div className="space-y-1">
             {allCategories.map((_category) => (
               <div
+                data-test={_category}
                 key={_category}
                 className={`cursor-pointer hover:text-blue-500 ${
                   _category === category ? "text-blue-500" : ""

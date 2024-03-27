@@ -46,7 +46,7 @@ const CustomPopup: FC = () => {
                 <td className="text-center">
                   <MdOutlineAccountCircle />
                 </td>
-                <td className="hover:underline cursor-pointer text-lg pl-2">
+                <td className="hover:underline cursor-pointer text-lg pl-2" data-test="account-contanier">
                   <Link to="/account" onClick={hidePopup}>
                     Account
                   </Link>
