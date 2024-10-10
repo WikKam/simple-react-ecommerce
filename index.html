@@ -7,94 +7,35 @@
     <title>Shopify - a simple eCommerce site</title>
     <meta property="og:title" content="Shopify - a simple eCommerce site" />
     <meta property="og:image" content="/main-og.png" />
-    <meta property="og:url" content="https://shopify-xrh7.onrender.com/" />
-    <script type="module" crossorigin src="/simple-react-ecommerce/assets/index-s020icBF.js"></script>
-    <link rel="stylesheet" crossorigin href="/simple-react-ecommerce/assets/index-Qsu4GRXm.css">
+
+    <!-- Start Single Page Apps for GitHub Pages -->
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // MIT License
+      // https://github.com/rafgraph/spa-github-pages
+      // This script checks to see if a redirect is present in the query string,
+      // converts it back into the correct url and adds it to the
+      // browser's history using window.history.replaceState(...),
+      // which won't cause the browser to attempt to load the new url.
+      // When the single page app is loaded further down in this file,
+      // the correct url will be waiting in the browser's history for
+      // the single page app to route accordingly.
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) {
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+                  l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
+    <!-- End Single Page Apps for GitHub Pages -->
+    <script type="module" crossorigin src="/simple-react-ecommerce/assets/index-BVmtThlG.js"></script>
+    <link rel="stylesheet" crossorigin href="/simple-react-ecommerce/assets/index-CvS56gJG.css">
   </head>
   <body>
-    <div id="root"></div>
-<!--BEGIN QUALTRICS WEBSITE FEEDBACK SNIPPET-->
-
-<script type='text/javascript'>
-
-  (function(){var g=function(e,h,f,g){
-  
-  this.get=function(a){for(var a=a+"=",c=document.cookie.split(";"),b=0,e=c.length;b<e;b++){for(var d=c[b];" "==d.charAt(0);)d=d.substring(1,d.length);if(0==d.indexOf(a))return d.substring(a.length,d.length)}return null};
-  
-  this.set=function(a,c){var b="",b=new Date;b.setTime(b.getTime()+6048E5);b="; expires="+b.toGMTString();document.cookie=a+"="+c+b+"; path=/; "};
-  
-  this.check=function(){var a=this.get(f);if(a)a=a.split(":");else if(100!=e)"v"==h&&(e=Math.random()>=e/100?0:100),a=[h,e,0],this.set(f,a.join(":"));else return!0;var c=a[1];if(100==c)return!0;switch(a[0]){case "v":return!1;case "r":return c=a[2]%Math.floor(100/c),a[2]++,this.set(f,a.join(":")),!c}return!0};
-  
-  this.go=function(){if(this.check()){var a=document.createElement("script");a.type="text/javascript";a.src=g;document.body&&document.body.appendChild(a)}};
-  
-  this.start=function(){var t=this;"complete"!==document.readyState?window.addEventListener?window.addEventListener("load",function(){t.go()},!1):window.attachEvent&&window.attachEvent("onload",function(){t.go()}):t.go()};};
-  
-  try{(new g(100,"r","QSI_S_ZN_3QaTHiIyLEs8lw2","https://zn3qathiiyles8lw2-delfin1b1.s1.b1-prv.qualtrics.com/SIE/?Q_ZID=ZN_3QaTHiIyLEs8lw2")).start()}catch(i){}})();
-  
-  </script><div id='ZN_3QaTHiIyLEs8lw2'><!--DO NOT REMOVE-CONTENTS PLACED HERE--></div>
-  
-  <!--END WEBSITE FEEDBACK SNIPPET-->
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const box = document.createElement('puppeteer-mouse-pointer');
-      const styleElement = document.createElement('style');
-      styleElement.innerHTML = `
-        puppeteer-mouse-pointer {
-          pointer-events: none;
-          position: absolute;
-          top: 0;
-          z-index: 10000;
-          left: 0;
-          width: 20px;
-          height: 20px;
-          background: rgba(0,0,0,.4);
-          border: 1px solid white;
-          border-radius: 10px;
-          margin: -10px 0 0 -10px;
-          padding: 0;
-          transition: background .2s, border-radius .2s, border-color .2s;
-        }
-        puppeteer-mouse-pointer.button-1 {
-          transition: none;
-          background: rgba(0,0,0,0.9);
-        }
-        puppeteer-mouse-pointer.button-2 {
-          transition: none;
-          border-color: rgba(0,0,255,0.9);
-        }
-        puppeteer-mouse-pointer.button-3 {
-          transition: none;
-          border-radius: 4px;
-        }
-        puppeteer-mouse-pointer.button-4 {
-          transition: none;
-          border-color: rgba(255,0,0,0.9);
-        }
-        puppeteer-mouse-pointer.button-5 {
-          transition: none;
-          border-color: rgba(0,255,0,0.9);
-        }
-      `;
-      document.head.appendChild(styleElement);
-      document.body.appendChild(box);
-      document.addEventListener('mousemove', event => {
-        box.style.left = event.pageX + 'px';
-        box.style.top = event.pageY + 'px';
-        updateButtons(event.buttons);
-      }, true);
-      document.addEventListener('mousedown', event => {
-        updateButtons(event.buttons);
-        box.classList.add('button-' + event.which);
-      }, true);
-      document.addEventListener('mouseup', event => {
-        updateButtons(event.buttons);
-        box.classList.remove('button-' + event.which);
-      }, true);
-      function updateButtons(buttons) {
-        for (let i = 0; i < 5; i++)
-          box.classList.toggle('button-' + i, buttons & (1 << i));
-      }
-    });
-  </script>
+    <div id="root" class="dark:bg-slate-800"></div>
   </body>
 </html>
