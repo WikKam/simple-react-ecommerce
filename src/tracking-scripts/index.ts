@@ -8,6 +8,7 @@ import syd1ZoneToScript from "./integration-tests/syd1/syd1-zones";
 import defaultZone from "./delfin1b1/default";
 import pdx1ZoneToScript from "./integration-tests/pdx1/pdx1-zones";
 import yul1ZoneToScript from "./integration-tests/yul1/yul1-zones";
+import hnd1ZoneToScript from "./integration-tests/hnd1/hnd1-zones";
 
 const zoneToScript: Record<string, string> = {
     ... b1ZoneToSCript,
@@ -18,7 +19,8 @@ const zoneToScript: Record<string, string> = {
     ... lhr1ZoneToScript,
     ... iad1ZoneToScript,
     ... pdx1ZoneToScript,
-    ... yul1ZoneToScript
+    ... yul1ZoneToScript,
+    ... hnd1ZoneToScript
 };
 
 export default function getTrackingScriptForZone(zoneId: string) {
