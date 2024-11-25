@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BsSearch } from "react-icons/bs";
 import { useAppSelector, useAppDispatch } from "../redux/hooks";
@@ -29,7 +29,7 @@ const Navbar: FC = () => {
     <div className="py-4 bg-white dark:bg-slate-800 top-0 sticky z-10 shadow-lg font-karla">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
-          <Link
+          <Link reloadDocument 
             to={{pathname: "/", search: location.search}}
             className="text-4xl font-bold dark:text-white"
             data-test="main-logo"
@@ -47,14 +47,14 @@ const Navbar: FC = () => {
             </div>
           </div>
           <div className="flex gap-4 md:gap-8 items-center dark:text-white">
-            <Link
+            <Link reloadDocument 
               to={{pathname: "/products", search: location.search}}
               className="text-xl font-bold"
               data-test="main-products"
             >
               Products
             </Link>
-            <Link
+            <Link reloadDocument 
               to={{pathname: "/categories", search: location.search}}
               className="text-xl font-bold"
               data-test="main-categories"

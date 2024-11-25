@@ -18,7 +18,7 @@ const HeroSection: FC = () => {
               Exclusive offer <span className="text-red-600">-10%</span> off
               this week
             </h3>
-            <Link
+            <Link reloadDocument 
               to={{pathname: "/product/6", search: location.search}}
               data-test="hero-btn"
               className="inline-block bg-white rounded-md px-6 py-3 hover:bg-blue-500 hover:text-white"

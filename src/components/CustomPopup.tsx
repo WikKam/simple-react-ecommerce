@@ -48,7 +48,7 @@ const CustomPopup: FC = () => {
                   <MdOutlineAccountCircle />
                 </td>
                 <td className="hover:underline cursor-pointer text-lg pl-2">
-                  <Link to={{pathname: "/account", search: location.search}} onClick={hidePopup}>
+                  <Link reloadDocument  to={{pathname: "/account", search: location.search}} onClick={hidePopup}>
                     Account
                   </Link>
                 </td>
@@ -61,7 +61,7 @@ const CustomPopup: FC = () => {
                   className="hover:underline cursor-pointer text-lg pl-2"
                   data-test="wishlist-container"
                 >
-                  <Link to={{pathname: "/wishlist", search: location.search}} onClick={hidePopup}>
+                  <Link reloadDocument  to={{pathname: "/wishlist", search: location.search}} onClick={hidePopup}>
                     Wishlist
                   </Link>
                 </td>

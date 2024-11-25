@@ -44,7 +44,7 @@ const ProductCard: FC<Product> = ({
   return (
     <div className="border border-gray-200 font-lato" data-test="product-card">
       <div className="text-center border-b border-gray-200">
-        <Link to={{ pathname: `/product/${id}`, search: location.search}}>
+        <Link reloadDocument  to={{ pathname: `/product/${id}`, search: location.search}}>
           <img
             src={thumbnail}
             alt={title}
@@ -56,7 +56,7 @@ const ProductCard: FC<Product> = ({
         <p className="text-gray-500 text-[14px] font-medium dark:text-white">
           {category}
         </p>
-        <Link
+        <Link reloadDocument 
           className="font-semibold hover:underline dark:text-white"
           to={{ pathname: `/product/${id}`,  search: location.search}}
         >

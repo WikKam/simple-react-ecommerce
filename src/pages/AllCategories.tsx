@@ -34,7 +34,7 @@ const AllCategories: FC = () => {
               className="bg-gray-100 dark:bg-slate-600 dark:text-white px-4 py-4 font-karla mr-2 mb-2"
             >
               <div className="text-lg">{category.name}</div>
-              <Link
+              <Link reloadDocument 
                 to={{ pathname: `/category/${category.slug}`, search: location.search }}
                 className="hover:underline text-blue-500"
               >
