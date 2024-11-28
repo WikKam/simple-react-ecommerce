@@ -27,6 +27,7 @@ const LoginModal: FC = () => {
         >
           <RxCross1
             className="absolute cursor-pointer right-5 top-5 hover:opacity-85"
+            data-test="login-close"
             onClick={() => dispatch(updateModal(false))}
           />
           {clicked ? (
