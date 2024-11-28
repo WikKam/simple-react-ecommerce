@@ -180,7 +180,7 @@ const SingleProduct: FC = () => {
             </button>
             <button
               type="button"
-              data-test="add-to-wishlist-button"
+              data-test="add-to-wishlist-button-details"
               className="flex items-center space-x-1 mb-2 bg-yellow-500 text-white p-2 rounded hover:bg-yellow-700"
               onClick={addWishlist}
             >
