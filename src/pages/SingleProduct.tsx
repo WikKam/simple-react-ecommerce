@@ -162,7 +162,7 @@ const SingleProduct: FC = () => {
           <div className="flex flex-wrap items-center mt-4 mb-2 space-x-2">
             <button
               type="button"
-              data-test="add-to-cart-button"
+              data-test="add-to-cart-button-details"
               className="flex items-center space-x-1 mb-2 hover:bg-pink-700 text-white p-2 rounded bg-pink-500"
               onClick={addCart}
             >
@@ -180,7 +180,7 @@ const SingleProduct: FC = () => {
             </button>
             <button
               type="button"
-              data-test="add-to-wishlist-button-details"
+              data-test="add-to-wishlist-button"
               className="flex items-center space-x-1 mb-2 bg-yellow-500 text-white p-2 rounded hover:bg-yellow-700"
               onClick={addWishlist}
             >
