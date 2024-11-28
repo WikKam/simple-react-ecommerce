@@ -3,13 +3,25 @@ import { Product } from "../../models/Product";
 import { ProductSlice } from "../../models/ProductSlice";
 import { Category } from "../../models/Category";
 
+const loadWishlist = () => {
+  const data = sessionStorage.getItem("wishlist");
+  if (data) {
+    return JSON.parse(data);
+  }
+  return [];
+};
+
 const initialState: ProductSlice = {
   allProducts: [],
   categories: [],
   newProducts: [],
   featuredProducts: [],
-  wishlist: [],
+  wishlist: loadWishlist(),
 };
+
+const storeWishlist = (wishlist: Product[]) => {
+  sessionStorage.setItem("wishlist", JSON.stringify(wishlist));
+}
 
 export const productSlice = createSlice({
   name: "productSlice",
@@ -22,11 +34,12 @@ export const productSlice = createSlice({
       return { ...state, featuredProducts: action.payload };
     },
     addToWishlist: (state, action: PayloadAction<Product>) => {
-      const { wishlist } = state;
+      const wishlist: Product[] = loadWishlist();
       if (wishlist.findIndex((item) => item.id === action.payload.id) === -1) {
-        const updatedList = [...state.wishlist, action.payload];
-        return { ...state, wishlist: updatedList };
+        const updatedList = [...wishlist, action.payload];
+        storeWishlist(updatedList);
       }
+      return state;
     },
     addCategories: (state, action: PayloadAction<Category[]>) => {
       return { ...state, categories: action.payload };

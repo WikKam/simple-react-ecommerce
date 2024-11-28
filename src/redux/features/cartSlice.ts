@@ -2,9 +2,21 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { CartItem } from "../../models/CartItem";
 import { CartSlice } from "../../models/CartSlice";
 
+const loadCart = () => {
+  const data = sessionStorage.getItem("cart");
+  if (data) {
+    return JSON.parse(data);
+  }
+  return [];
+};
+
+const storeCart = (wishlist: CartItem[]) => {
+  sessionStorage.setItem("cart", JSON.stringify(wishlist));
+}
+
 const initialState: CartSlice = {
   cartOpen: false,
-  cartItems: [],
+  cartItems: loadCart(),
 };
 
 export const cartSlice = createSlice({
@@ -12,47 +24,54 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action: PayloadAction<CartItem>) => {
-      const { cartItems } = state;
-      if (cartItems.findIndex((pro) => pro.id === action.payload.id) === -1) {
+      const cart: CartItem[] = loadCart();
+      if (cart.findIndex((pro) => pro.id === action.payload.id) === -1) {
         const item = { ...action.payload, quantity: 1 };
-        return { ...state, cartItems: [...cartItems, item] };
+        const updatedCart = [...cart, item];
+        storeCart(updatedCart);
+        return { ...state, cartItems: updatedCart };
       } else {
-        const updatedItems = cartItems.map((item) =>
+        const updatedCart = cart.map((item) =>
           item.id === action.payload.id
             ? { ...item, quantity: item.quantity && item.quantity + 1 }
             : item
         );
-        return { ...state, cartItems: updatedItems };
+        storeCart(updatedCart);
+        return { ...state, cartItems: updatedCart };
       }
     },
     removeFromCart: (state, action: PayloadAction<number>) => {
-      const { cartItems } = state;
-      const updatedItems = cartItems.filter(
+      const cart: CartItem[] = loadCart();
+      const updatedCart = cart.filter(
         (item) => item.id !== action.payload
       );
-      return { ...state, cartItems: updatedItems };
+      storeCart(updatedCart);
+      return { ...state, cartItems: updatedCart };
     },
     reduceFromCart: (state, action: PayloadAction<number>) => {
-      const { cartItems } = state;
-      const _item = cartItems.find((item) => item.id === action.payload);
+      const cart: CartItem[] = loadCart();
+      const _item = cart.find((item) => item.id === action.payload);
       if (_item?.quantity && _item?.quantity > 1) {
-        const updatedList = cartItems.map((item) =>
+        const updatedCart = cart.map((item) =>
           item.id === action.payload
             ? { ...item, quantity: item.quantity && item.quantity - 1 }
             : item
         );
-        return { ...state, cartItems: updatedList };
+        storeCart(updatedCart);
+        return { ...state, cartItems: updatedCart };
       } else {
-        const updatedItems = cartItems.filter(
+        const updatedCart = cart.filter(
           (item) => item.id !== action.payload
         );
-        return { ...state, cartItems: updatedItems };
+        storeCart(updatedCart);
+        return { ...state, cartItems: updatedCart };
       }
     },
     setCartState: (state, action: PayloadAction<boolean>) => {
       return { ...state, cartOpen: action.payload };
     },
     emptyCart: (state) => {
+      storeCart([]);
       return { ...state, cartItems: [] };
     },
   },
